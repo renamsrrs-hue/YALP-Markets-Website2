@@ -20,21 +20,21 @@ const cases = [
   {
     title: 'SPY · leitura de contexto',
     type: 'Opções / índice',
-    image: '/assets/Predict_!_SPY_PUT_765_copy_1789207167742.jpeg',
+    image: '/assets/Predict_!_SPY_PUT_765_copy_1789207995147.jpeg',
     copy: 'Uma leitura documentada de estrutura, cenário e invalidação. O gráfico como hipótese — nunca como promessa.',
     mark: '01',
   },
   {
     title: 'DAIC · quando o preço acelera',
     type: 'Ação / momentum',
-    image: '/assets/DAIC_-_228_(24-250826)_copy_1789207167745.jpeg',
+    image: '/assets/DAIC_-_228_(24-250826)_copy_1789207995146.jpeg',
     copy: 'Observar o que mudou antes de decidir o que fazer. Volume, níveis e comportamento no mesmo enquadramento.',
     mark: '02',
   },
   {
     title: 'GameStop · plano antes da posição',
     type: 'Ação / estrutura',
-    image: '/assets/GAMESTOP_-_366!!!!!_20260911C20.5_copy_1789207167745.jpeg',
+    image: '/assets/GAMESTOP_-_366!!!!!_20260911C20.5_1789207995146.jpeg',
     copy: 'Um estudo sobre assimetria, risco definido e o espaço entre uma ideia interessante e uma ideia executável.',
     mark: '03',
   },
@@ -200,7 +200,7 @@ function Studies() {
           ))}
         </div>
         <div className="reveal mt-5 grid gap-5 md:grid-cols-2">
-          <div className="image-frame aspect-[1.7/1] bg-[var(--navy)]"><img src="/assets/Screenshot_2026-09-03_at_15.48.31_1789207181948.png" alt="Estudo visual de estrutura de preço no gráfico GameStop" /><span className="absolute bottom-4 left-4 bg-[var(--paper)] px-2 py-1 font-mono text-[10px] text-[var(--navy)]">ARQUIVO DE ESTUDO / 04</span></div>
+          <div className="image-frame aspect-[1.7/1] bg-[var(--navy)]"><img src="/assets/Screenshot_2026-09-03_at_15.48.31_1789207776759.png" alt="Estudo visual de estrutura de preço no gráfico GameStop" /><span className="absolute bottom-4 left-4 bg-[var(--paper)] px-2 py-1 font-mono text-[10px] text-[var(--navy)]">ARQUIVO DE ESTUDO / 04</span></div>
           <div className="flex flex-col justify-between border border-[var(--navy)]/20 p-7 md:p-10"><div><p className="eyebrow text-[var(--moss)]">A documentação importa</p><p className="mt-6 font-serif text-3xl leading-[1.05]">Uma decisão sem contexto é apenas uma imagem.</p></div><a href="mailto:hello@yalp.info" className="button-arrow mt-12 w-fit border-b border-[var(--navy)] pb-2" data-testid="link-studies-contact"><span className="eyebrow">Pedir contexto</span><ArrowUpRight size={15} /></a></div>
         </div>
       </div>
@@ -255,7 +255,6 @@ function AboutAndDisclaimer() {
             <p className="mt-7 font-serif text-3xl leading-[1.05]">Educação não é recomendação.</p>
             <p className="mt-5 text-sm leading-[1.7] text-[var(--navy)]/65">O conteúdo da YALP Markets é exclusivamente educacional e informativo e não constitui aconselhamento financeiro personalizado, recomendação de investimento ou solicitação para comprar ou vender instrumentos financeiros. Cada pessoa deve fazer a sua própria pesquisa e, se necessário, procurar aconselhamento profissional independente. O desempenho passado não garante resultados futuros. Investir envolve risco de perda de capital.</p>
           </div>
-          <div className="mt-12 image-frame aspect-[1.6/1]"><img src="/assets/Screenshot_2026-08-29_at_17.00.38_1789207181945.png" alt="Princípios de estudo e observação apresentados num arquivo visual" /></div>
         </div>
       </div>
     </section>
