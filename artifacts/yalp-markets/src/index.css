@@ -109,6 +109,15 @@
 .image-frame { position: relative; overflow: hidden; background: #252938; }
 .image-frame img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.22,.61,.36,1); }
 .image-frame:hover img { transform: scale(1.035); }
+.hero-frame { background: var(--navy); }
+.hero-frame img { object-fit: contain; }
+.brand-logo { mix-blend-mode: multiply; }
+.brand-logo-inverse { display: inline-flex; }
+.resource-card { background: rgba(241,238,229,.035); transition: background-color .25s ease, border-color .25s ease; }
+.resource-card:hover { background: rgba(241,238,229,.08); border-color: rgba(196,223,49,.6); }
+.resource-frame { position: relative; overflow: hidden; background: var(--paper); }
+.resource-frame img { display: block; width: 100%; height: 100%; object-fit: contain; padding: 12px; transition: transform .8s cubic-bezier(.22,.61,.36,1); }
+.resource-card:hover .resource-frame img { transform: scale(1.025); }
 .button-arrow { display: inline-flex; align-items: center; gap: 15px; transition: gap .25s ease, background-color .25s ease, color .25s ease; }
 .button-arrow:hover { gap: 21px; }
 .button-arrow svg { transition: transform .25s ease; }

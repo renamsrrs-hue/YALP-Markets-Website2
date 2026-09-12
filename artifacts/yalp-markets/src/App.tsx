@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowDownRight, ArrowUpRight, LineChart, Menu, MoveRight, ShieldCheck, X } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight, Download, LineChart, Menu, MoveRight, ShieldCheck, X } from 'lucide-react';
 import { type ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ErrorBoundary } from '@/components/error-boundary';
@@ -13,6 +13,7 @@ const queryClient = new QueryClient();
 const navItems = [
   { label: 'A abordagem', href: '#abordagem' },
   { label: 'Estudos', href: '#estudos' },
+  { label: 'Recursos', href: '#recursos' },
   { label: 'Princípios', href: '#principios' },
 ];
 
@@ -40,6 +41,30 @@ const cases = [
   },
 ];
 
+const resources = [
+  {
+    title: 'Trader’s Mind Maps',
+    type: 'Guia de leitura',
+    description: 'Um mapa visual para organizar contexto, estrutura, volume, liquidez e gestão de risco.',
+    image: '/assets/yalp-mind-map.png',
+    file: '/assets/yalp-mind-map.png',
+  },
+  {
+    title: '5 indicadores essenciais',
+    type: 'Guia de indicadores',
+    description: 'Uma referência rápida para RSI, MACD, bandas, volume profile e ATR — sempre como apoio à leitura.',
+    image: '/assets/yalp-indicators.png',
+    file: '/assets/yalp-indicators.png',
+  },
+  {
+    title: 'Checklist do trader',
+    type: 'Checklist de preparação',
+    description: 'Uma folha de trabalho para passar do contexto à execução com um plano claro.',
+    image: '/assets/yalp-checklist.png',
+    file: '/assets/yalp-checklist.png',
+  },
+];
+
 function useReveal() {
   useEffect(() => {
     const nodes = document.querySelectorAll<HTMLElement>('.reveal');
@@ -63,8 +88,8 @@ function useReveal() {
 function BrandMark() {
   return (
     <a href="#top" className="flex items-center gap-3" data-testid="link-brand">
-      <span className="flex h-9 w-9 items-center justify-center bg-[var(--lime)] text-[var(--navy)] font-bold text-sm tracking-[-.08em]">Y/</span>
-      <span className="font-semibold tracking-[-.04em] text-[17px]">YALP <span className="font-normal opacity-50">Markets</span></span>
+      <img src="/assets/yalp-logo-wordmark.png" alt="yalp" className="brand-logo h-10 w-[88px] object-contain" />
+      <span className="font-mono text-[10px] uppercase tracking-[.16em] text-[var(--navy)]/55">Markets</span>
     </a>
   );
 }
@@ -108,9 +133,9 @@ function Navigation({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: (open: 
 
 function Hero() {
   return (
-    <section id="top" className="hero-grid relative min-h-[730px] pt-[82px]">
-      <div className="yalp-shell grid min-h-[648px] items-center gap-12 py-20 lg:grid-cols-[1.05fr_.95fr] lg:gap-20">
-        <div>
+    <section id="top" className="hero-grid relative pt-[82px]">
+      <div className="yalp-shell flex flex-col items-start gap-14 py-20 md:gap-16 md:py-28">
+        <div className="max-w-[760px]">
           <div className="reveal mb-9 flex items-center gap-3">
             <span className="h-px w-9 bg-[var(--moss)]" /><span className="eyebrow text-[var(--moss)]">Educação de mercado · Portugal</span>
           </div>
@@ -127,12 +152,12 @@ function Hero() {
             <a href="#estudos" className="eyebrow border-b border-[var(--navy)]/40 pb-1" data-testid="link-hero-studies">Ver estudos</a>
           </div>
         </div>
-        <div className="reveal delay-2 relative lg:mt-12">
-          <div className="image-frame aspect-[1.12/1] lg:aspect-[1.08/1]">
+        <div className="reveal delay-2 relative w-full">
+          <div className="image-frame hero-frame aspect-[16/9]">
             <img src="/assets/trading_cover_1789207188908.png" alt="Trader a observar vários gráficos num espaço de estudo" />
-            <div className="absolute bottom-0 left-0 bg-[var(--lime)] px-4 py-3">
-              <span className="eyebrow">O trabalho acontece antes da entrada.</span>
-            </div>
+          </div>
+          <div className="absolute bottom-0 left-0 bg-[var(--lime)] px-4 py-3">
+            <span className="eyebrow">O trabalho acontece antes da entrada.</span>
           </div>
           <div className="absolute -right-3 -top-3 hidden h-20 w-20 border-r border-t border-[var(--moss)] sm:block" />
           <div className="absolute -bottom-4 -left-4 hidden h-20 w-20 border-b border-l border-[var(--moss)] sm:block" />
@@ -208,6 +233,41 @@ function Studies() {
   );
 }
 
+function Resources() {
+  return (
+    <section id="recursos" className="bg-[var(--navy)] py-28 text-[var(--paper)] md:py-40">
+      <div className="yalp-shell">
+        <div className="mb-16 flex flex-col justify-between gap-7 md:flex-row md:items-end">
+          <div className="reveal">
+            <p className="eyebrow text-[var(--lime)]">Biblioteca aberta</p>
+            <h2 className="display mt-5 max-w-[670px] text-[clamp(3.2rem,6.5vw,6rem)] leading-[.88]">Estudar também é ter boas ferramentas.</h2>
+          </div>
+          <p className="reveal delay-1 max-w-[330px] text-sm leading-relaxed text-[var(--paper)]/60">Guias visuais e folhas de trabalho para descarregar gratuitamente. Usa-os como ponto de partida, não como uma fórmula.</p>
+        </div>
+        <div className="grid gap-5 lg:grid-cols-3">
+          {resources.map((resource, index) => (
+            <article key={resource.title} className={`reveal delay-${index + 1} resource-card group border border-[var(--paper)]/20`}>
+              <div className="resource-frame aspect-[4/3]">
+                <img src={resource.image} alt={resource.title} />
+              </div>
+              <div className="flex min-h-[230px] flex-col justify-between p-6 md:p-7">
+                <div>
+                  <p className="eyebrow text-[var(--lime)]">{resource.type}</p>
+                  <h3 className="mt-4 font-serif text-3xl leading-none">{resource.title}</h3>
+                  <p className="mt-4 text-sm leading-relaxed text-[var(--paper)]/60">{resource.description}</p>
+                </div>
+                <a href={resource.file} download className="button-arrow mt-8 w-fit border-b border-[var(--paper)]/40 pb-2 text-[var(--paper)]" data-testid={`download-resource-${index + 1}`}>
+                  <span className="eyebrow">Descarregar gratuitamente</span><Download size={15} strokeWidth={1.5} />
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Principles() {
   return (
     <section id="principios" className="bg-[var(--moss)] py-28 text-[var(--paper)] md:py-36">
@@ -266,7 +326,7 @@ function Footer() {
     <footer className="bg-[var(--navy)] py-12 text-[var(--paper)]">
       <div className="yalp-shell">
         <div className="flex flex-col justify-between gap-10 border-b border-[var(--paper)]/20 pb-12 md:flex-row md:items-end">
-          <div><a href="#top" className="flex items-center gap-3" data-testid="link-footer-brand"><span className="flex h-9 w-9 items-center justify-center bg-[var(--lime)] text-[var(--navy)] font-bold text-sm">Y/</span><span className="font-semibold tracking-[-.04em]">YALP <span className="font-normal text-[var(--paper)]/50">Markets</span></span></a><p className="mt-6 max-w-[290px] text-sm leading-relaxed text-[var(--paper)]/50">Uma prática de leitura para mercados que não param de mudar.</p></div>
+          <div><a href="#top" className="flex items-center gap-3" data-testid="link-footer-brand"><span className="brand-logo-inverse bg-white p-1"><img src="/assets/yalp-logo-wordmark.png" alt="yalp" className="h-8 w-[72px] object-contain" /></span><span className="font-mono text-[10px] uppercase tracking-[.16em] text-[var(--paper)]/55">Markets</span></a><p className="mt-6 max-w-[290px] text-sm leading-relaxed text-[var(--paper)]/50">Uma prática de leitura para mercados que não param de mudar.</p></div>
           <a href="mailto:hello@yalp.info" className="group flex items-center gap-4" data-testid="link-footer-contact"><span className="font-serif text-3xl group-hover:text-[var(--lime)]">hello@yalp.info</span><ArrowUpRight size={19} className="text-[var(--lime)]" /></a>
         </div>
         <div className="flex flex-col justify-between gap-3 pt-7 text-[10px] text-[var(--paper)]/40 sm:flex-row"><span className="eyebrow">© {new Date().getFullYear()} YALP Markets</span><span className="eyebrow">Educação · Processo · Clareza</span></div>
@@ -284,6 +344,7 @@ function Home() {
       <Hero />
       <Approach />
       <Studies />
+      <Resources />
       <Principles />
       <Statement />
       <AboutAndDisclaimer />
