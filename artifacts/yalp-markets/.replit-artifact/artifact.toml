@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "YALP Markets"
+description = "Website editorial da YALP Markets, uma plataforma portuguesa de educação e estudo de trading baseada em leitura de mercado, disciplina e gestão de risco."
+version = "1.0.0"
+id = "artifacts/yalp-markets"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18322
+
+[services.development]
+run = "pnpm --filter @workspace/yalp-markets run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/yalp-markets", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/yalp-markets/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18322"
+BASE_PATH = "/"
